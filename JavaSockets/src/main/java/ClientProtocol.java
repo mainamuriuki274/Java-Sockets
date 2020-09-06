@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.sql.Timestamp;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,10 +19,12 @@ import java.net.Socket;
 public class ClientProtocol {
     String message;
     public ClientProtocol(String sender,String msg){
-        message = "Client: " + msg;
+        Timestamp t = new Timestamp(new java.util.Date().getTime());
+        message = t.toString() + " Client: " + msg;
     }
      public ClientProtocol(String msg){
-        message = "Server: " + msg;
+        Timestamp t = new Timestamp(new java.util.Date().getTime());
+        message =  t.toString() + " Server: " + msg;
     }    
 }
 
