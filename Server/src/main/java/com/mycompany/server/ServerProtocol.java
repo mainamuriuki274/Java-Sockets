@@ -5,6 +5,8 @@
  */
 package com.mycompany.server;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author hp
@@ -12,9 +14,11 @@ package com.mycompany.server;
 public class ServerProtocol {
       String message;
     public ServerProtocol(String sender,String msg){
-        message = "Server: " + msg;
+        Timestamp t = new Timestamp(new java.util.Date().getTime());
+        message =  t.toString() + " Server: " + msg;
     }
      public ServerProtocol(String msg){
-        message = "Client: " + msg;
+       Timestamp t = new Timestamp(new java.util.Date().getTime());
+        message = t.toString() + " Client: " + msg;
     }   
 }
